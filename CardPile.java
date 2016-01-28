@@ -28,19 +28,18 @@ public class CardPile
     { return thePile.empty(); }
 
     public boolean includes (int tx, int ty) // sometimes overridden
-    {   return x <= tx && tx <= x + Card.width &&
-            y <= ty && ty <= y + Card.height;
+    {   return x <= tx && tx <= x + CardView.width &&
+            y <= ty && ty <= y + CardView.height;
     }
     
     public boolean canTake (Card aCard)  // sometimes overridden
     { return false; }
 
-    public void display (Graphics g)  // sometimes overridden
-    {   g.setColor(Color.blue);
-        if (isEmpty())
-            g.drawRect(x, y, Card.width, Card.height);
+    public void display (CardView cv)  // sometimes overridden
+    {   if (isEmpty())
+            cv.display(null, x, y);
         else
-            top().draw(g, x, y);
+            cv.display((Card) thePile.peek(), x, y);
     }
 
 // protected data fields
