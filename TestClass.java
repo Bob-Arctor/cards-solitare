@@ -22,15 +22,16 @@
  */
  
  import java.util.*;
+ import java.awt.*;
 
 
 public class TestClass {
 	
 	public static void main (String args[]) {
 		
-		Random r = new Random();
-		Card testCard = new Card(Card.SUIT.values()[r.nextInt(4)],r.nextInt(13)+1);
-		System.out.println("the created card is " + testCard.rank() + " of " + testCard.suit().name());
+		Frame window = new SolitaireFrame();
+		Game newGame = new Game ();
+		window.show();
 		
 	}
 }
